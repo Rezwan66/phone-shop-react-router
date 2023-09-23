@@ -1,6 +1,8 @@
-import { Link, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import useGetPhonesData from '../hooks/useGetPhonesData';
+import { addToLS } from '../utility/localstorage';
+import swal from 'sweetalert';
 
 const PhoneDetails = () => {
   const [phoneDetail, setPhoneDetail] = useState({});
@@ -15,7 +17,23 @@ const PhoneDetails = () => {
   }, [id, phones]);
 
   console.log(phoneDetail);
-  const { brand_name, image, phone_name, price } = phoneDetail || {};
+  const {
+    id: phonId,
+    brand_name,
+    image,
+    phone_name,
+    price,
+  } = phoneDetail || {};
+
+  const navigate = useNavigate();
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
+  const handleAddToFav = id => {
+    addToLS(id);
+  };
+
   return (
     <div>
       <div className="h-[10vh] bg-green-100 flex justify-center items-center">
@@ -46,8 +64,10 @@ const PhoneDetails = () => {
                 </p>
               </div>
             </div>
-            <Link>
+
+            <div className="flex gap-4">
               <button
+                onClick={() => handleAddToFav(phonId)}
                 className="flex bg-green-200 select-none items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-pink-500 transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                 type="button"
               >
@@ -68,7 +88,30 @@ const PhoneDetails = () => {
                   ></path>
                 </svg>
               </button>
-            </Link>
+
+              <button
+                onClick={handleGoBack}
+                className="flex bg-green-200 select-none items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-pink-500 transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                type="button"
+              >
+                Go Back to Phones
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="2"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                  className="h-4 w-4"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                  ></path>
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </div>

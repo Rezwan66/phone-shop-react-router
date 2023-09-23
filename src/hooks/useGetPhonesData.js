@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 
 const useGetPhonesData = () => {
-    const [phones, setPhones] = useState();
+    const [phones, setPhones] = useState([]);
 
     useEffect(() => {
         fetch('/phones.json')

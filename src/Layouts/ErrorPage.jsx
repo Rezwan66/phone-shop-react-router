@@ -3,7 +3,7 @@ import { Link, useRouteError } from 'react-router-dom';
 const ErrorPage = () => {
   const error = useRouteError();
   return (
-    <div className="flex justify-center ">
+    <div className="flex justify-center mt-72">
       <div>
         <h1>Oops!</h1>
         <p>Sorry, an unexpected error has occurred.</p>

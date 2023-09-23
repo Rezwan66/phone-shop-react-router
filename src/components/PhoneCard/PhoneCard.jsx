@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import Rating from 'react-rating';
+import { Link } from 'react-router-dom';
 
 const PhoneCard = ({ phone }) => {
-  const { image, rating, brand_name, phone_name, price } = phone || {};
+  const { id, image, rating, brand_name, phone_name, price } = phone || {};
   return (
     <div>
       <div className="relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
@@ -47,7 +48,6 @@ const PhoneCard = ({ phone }) => {
               readonly
             />
           </p>
-          {/* <Rating value={rating} readonly /> */}
           <br />
           <span className="text-white text-sm py-1 px-2 rounded-full font-semibold bg-green-400">
             {brand_name}
@@ -62,12 +62,14 @@ const PhoneCard = ({ phone }) => {
           </div>
         </div>
         <div className="p-6 pt-0">
-          <button
-            className="block w-full select-none rounded-lg bg-green-200 hover:bg-green-400 hover:text-white py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            type="button"
-          >
-            See Details
-          </button>
+          <Link to={`/phone/${id}`}>
+            <button
+              className="block w-full select-none rounded-lg bg-green-200 hover:bg-green-400 hover:text-white py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+              type="button"
+            >
+              See Details
+            </button>
+          </Link>
         </div>
       </div>
     </div>

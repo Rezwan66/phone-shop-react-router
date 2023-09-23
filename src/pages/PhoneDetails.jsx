@@ -2,7 +2,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import useGetPhonesData from '../hooks/useGetPhonesData';
 import { addToLS } from '../utility/localstorage';
-import swal from 'sweetalert';
 
 const PhoneDetails = () => {
   const [phoneDetail, setPhoneDetail] = useState({});

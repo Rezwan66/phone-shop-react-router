@@ -61,7 +61,7 @@ const Favorites = () => {
       </h1>
       {favoritePhones.length ? (
         <div>
-          <div className="flex gap-4">
+          <div className="flex gap-4 justify-between">
             <div className="grid grid-cols-1 md:grid-cols-2 w-3/4 gap-4">
               {allShown
                 ? favoritePhones.map(phone => (

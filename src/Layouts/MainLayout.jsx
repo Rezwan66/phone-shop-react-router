@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 const MainLayout = () => {
   const loc = useLocation();
-  console.log(loc.pathname);
+  // console.log(loc.pathname);
   useEffect(() => {
     if (loc.pathname === '/') {
       document.title = 'HOME';

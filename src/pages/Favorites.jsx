@@ -24,6 +24,9 @@ const Favorites = () => {
       }
     }
     setFavoritePhones(savedPhones);
+  }, [phones]);
+
+  useEffect(() => {
     if (favoritePhones) {
       const totalPrice = favoritePhones.reduce(
         (preValue, currentItem) => preValue + currentItem.price,
@@ -32,20 +35,9 @@ const Favorites = () => {
       console.log(totalPrice);
       setPrice(totalPrice);
     }
-  }, [phones]);
+  }, [favoritePhones]);
 
-  // useEffect(() => {
-  //   if (favoritePhones) {
-  //     const totalPrice = favoritePhones.reduce(
-  //       (preValue, currentItem) => preValue + currentItem.price,
-  //       0
-  //     );
-  //     console.log(totalPrice);
-  //     setPrice(totalPrice);
-  //   }
-  // }, [favoritePhones]);
-
-  console.log('favorites', favoritePhones);
+  // console.log('favorites', favoritePhones);
 
   const handleDeleteAll = () => {
     localStorage.removeItem('phones');

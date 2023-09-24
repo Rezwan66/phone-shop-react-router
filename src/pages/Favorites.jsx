@@ -84,21 +84,27 @@ const Favorites = () => {
               </button>
             </div>
           </div>
-          {!allShown ? (
-            <button
-              onClick={() => setAllShown(!allShown)}
-              className="w-[490px] ml-[25%] p-2 my-10 bg-green-500 rounded-lg text-white font-bold text-xl"
-            >
-              See More
-            </button>
-          ) : (
-            <button
-              onClick={() => setAllShown(!allShown)}
-              className="w-[490px] ml-[25%] p-2 my-10 bg-green-500 rounded-lg text-white font-bold text-xl"
-            >
-              See Less
-            </button>
-          )}
+          <div>
+            {favoritePhones.length > 2 && (
+              <div>
+                {!allShown ? (
+                  <button
+                    onClick={() => setAllShown(!allShown)}
+                    className="w-[490px] ml-[25%] p-2 my-10 bg-green-500 rounded-lg text-white font-bold text-xl"
+                  >
+                    See More
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => setAllShown(!allShown)}
+                    className="w-[490px] ml-[25%] p-2 my-10 bg-green-500 rounded-lg text-white font-bold text-xl"
+                  >
+                    See Less
+                  </button>
+                )}
+              </div>
+            )}
+          </div>
         </div>
       ) : (
         <div className="text-center mt-56 text-2xl font-medium text-green-400">

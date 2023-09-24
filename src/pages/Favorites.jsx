@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import useGetPhonesData from '../hooks/useGetPhonesData';
 import { getItemsFromLS } from '../utility/localstorage';
 import PhoneCard from '../components/PhoneCard/PhoneCard';
+import swal from 'sweetalert';
 
 const Favorites = () => {
   const [favoritePhones, setFavoritePhones] = useState([]);
@@ -50,6 +51,7 @@ const Favorites = () => {
     localStorage.removeItem('phones');
     setFavoritePhones([]);
     setPrice(0);
+    swal('Success!', 'Deleted All Phones!', 'success');
   };
 
   return (

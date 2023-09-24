@@ -8,8 +8,8 @@ const Navbar = () => {
           <Link to="/">
             <h2 className="text-2xl font-semibold">
               <span className="text-green-400">Phone</span>
-              <span className="font-bold">Shop</span>
-              <sup className="text-sm text-green-400">DE</sup>
+              <span className="font-bold text-gray-600">Shop</span>
+              <sup className="text-sm font-bold text-green-400">DE</sup>
             </h2>
           </Link>
         </div>

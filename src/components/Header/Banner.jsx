@@ -1,4 +1,4 @@
-const Banner = () => {
+const Banner = ({ handleSearchTerm }) => {
   return (
     <div className="h-[60vh] relative">
       <img
@@ -7,7 +7,10 @@ const Banner = () => {
         alt=""
       />
 
-      <form className="absolute top-[40%] w-[75%] left-[12.5%]">
+      <form
+        onSubmit={handleSearchTerm}
+        className="absolute top-[40%] w-[75%] left-[12.5%]"
+      >
         <label
           htmlFor="default-search"
           className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -33,6 +36,7 @@ const Banner = () => {
             </svg>
           </div>
           <input
+            name="searchTerm"
             type="search"
             id="default-search"
             className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"

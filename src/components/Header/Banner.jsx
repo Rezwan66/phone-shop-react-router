@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const Banner = ({ handleSearchTerm }) => {
   return (
     <div className="h-[60vh] relative">
@@ -53,6 +55,10 @@ const Banner = ({ handleSearchTerm }) => {
       </form>
     </div>
   );
+};
+
+Banner.propTypes = {
+  handleSearchTerm: PropTypes.func,
 };
 
 export default Banner;

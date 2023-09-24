@@ -1,17 +1,17 @@
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <div className="py-4 px-10 shadow-md mb-12">
+    <div className="py-4 px-10 shadow-md mb-12 rounded-lg">
       <nav className="flex justify-between items-center">
         <div>
-          <Link to="/">
+          <a href="/">
             <h2 className="text-2xl font-semibold">
               <span className="text-green-400">Phone</span>
               <span className="font-bold text-gray-600">Shop</span>
               <sup className="text-sm font-bold text-green-400">DE</sup>
             </h2>
-          </Link>
+          </a>
         </div>
         <div>
           <ul className="flex gap-6">
